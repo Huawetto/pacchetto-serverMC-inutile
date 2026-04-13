@@ -64,6 +64,10 @@ public class RecipeRegistry {
         return true;
     }
 
+    public Optional<MachineRecipe> findByOutput(String outputId) {
+        return recipes.values().stream().filter(r -> r.outputId().equals(outputId)).findFirst();
+    }
+
     private Map<String, Integer> countItems(Inventory inventory) {
         Map<String, Integer> count = new HashMap<>();
         for (ItemStack stack : inventory.getContents()) {

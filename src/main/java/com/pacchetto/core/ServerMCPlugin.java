@@ -87,4 +87,8 @@ public final class ServerMCPlugin extends JavaPlugin {
     public ItemRegistry getItemRegistry() {
         return itemRegistry;
     }
+
+    public RecipeRegistry getRecipeRegistry() {
+        return recipeRegistry;
+    }
 }
