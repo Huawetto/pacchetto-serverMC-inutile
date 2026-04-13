@@ -3,6 +3,7 @@ package com.pacchetto.items;
 import com.pacchetto.core.ServerMCPlugin;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -65,5 +66,9 @@ public class ItemRegistry {
 
     public String id(ItemStack stack) {
         return factory.id(stack);
+    }
+
+    public Collection<CustomItem> allItems() {
+        return items.values();
     }
 }

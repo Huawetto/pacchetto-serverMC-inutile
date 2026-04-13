@@ -45,11 +45,12 @@ public final class ServerMCPlugin extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new MachineListener(this, machineManager, itemRegistry, guiManager), this);
         Bukkit.getPluginManager().registerEvents(guiManager, this);
 
-        TerminalCommand terminalCommand = new TerminalCommand(this, machineManager, energyManager, cargoManager, aiOrchestrator);
+        TerminalCommand terminalCommand = new TerminalCommand(this);
         if (getCommand("fun") != null) {
             getCommand("fun").setExecutor(terminalCommand);
             getCommand("fun").setTabCompleter(terminalCommand);
         }
+        Bukkit.getPluginManager().registerEvents(terminalCommand, this);
 
         machineManager.startTicker();
         cargoManager.start();

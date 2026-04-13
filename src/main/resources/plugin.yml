@@ -6,8 +6,7 @@ author: Huawetto
 commands:
   fun:
     description: Comando principale plugin FUN
-    usage: /fun <guide|energy|machines|cargo|ai|debug|help>
-    aliases: [terminal]
+    usage: /fun <guide|cheat>
 permissions:
   servermc.fun:
     default: true
