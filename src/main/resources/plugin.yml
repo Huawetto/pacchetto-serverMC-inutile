@@ -1,0 +1,12 @@
+name: ServerMCInutile
+version: 1.0.0
+main: com.pacchetto.core.ServerMCPlugin
+api-version: '1.20'
+author: pacchetto
+commands:
+  terminal:
+    description: Accesso terminale tecnico
+    usage: /terminal <energy|machines|cargo|debug|ai>
+permissions:
+  servermc.terminal:
+    default: true
