@@ -26,7 +26,7 @@ public final class ServerMCPlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        saveDefaultConfig();
+        bootstrapDataFiles();
         this.databaseManager = new DatabaseManager(this);
         this.databaseManager.init();
 
@@ -54,6 +54,20 @@ public final class ServerMCPlugin extends JavaPlugin {
         aiOrchestrator.start();
 
         getLogger().info("ServerMCInutile enabled with " + machineManager.getAllMachines().size() + " loaded machines.");
+    }
+
+    private void bootstrapDataFiles() {
+        if (!getDataFolder().exists() && !getDataFolder().mkdirs()) {
+            getLogger().warning("Cannot create plugin data folder: " + getDataFolder().getAbsolutePath());
+        }
+        saveResourceIfMissing("config.yml");
+    }
+
+    private void saveResourceIfMissing(String fileName) {
+        java.io.File target = new java.io.File(getDataFolder(), fileName);
+        if (!target.exists()) {
+            saveResource(fileName, false);
+        }
     }
 
     @Override
